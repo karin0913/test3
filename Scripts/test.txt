@@ -1,0 +1,20 @@
+フォルダー パスの一覧:  ボリューム Windows
+ボリューム シリアル番号は D033-1AD3 です
+C:.
+|   activate
+|   activate.bat
+|   Activate.ps1
+|   deactivate.bat
+|   django-admin.exe
+|   django-admin.py
+|   pip.exe
+|   pip3.10.exe
+|   pip3.exe
+|   python.exe
+|   pythonw.exe
+|   sqlformat.exe
+|   test.txt
+|   
+\---__pycache__
+        django-admin.cpython-310.pyc
+        

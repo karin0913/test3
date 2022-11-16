@@ -1,0 +1,56 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "runserver",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}\\private_jimyou\\manage.py",
+            "args": [
+                "runserver"
+            ],
+            "django": true,
+            // "justMyCode": true,
+            "env": {
+                "PYTHONUNBUFFERED": "1",
+                "DB_USER": "postgres",
+                "DB_PASSWORD": "Karin0913",
+                // "DJANGO_SETTINGS_MODULE":"private_jimyou.settings_dev.py"
+            }
+            
+        }
+    ]
+}
+
+
+// {
+//     // IntelliSense を使用して利用可能な属性を学べます。
+//     // 既存の属性の説明をホバーして表示します。
+//     // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+//     "version": "0.2.0",
+//     "configurations": [
+//     {"name":"Python: 現在のファイル","type":"python","request":"launch","program":"${file}","console":"integratedTerminal","justMyCode":true},
+//         {
+//             "name": "Python Django",
+//             "type": "python",
+//             "request": "launch",
+//             "program": "${workspaceFolder}\\kouka1_app\\manage.py",
+//             "args": [
+//                 "runserver"
+//             ],
+//             // "django": true,
+//             // "justMyCode": true,
+//             "env": {
+//                 "PYTHONUNBUFFERED": "1",
+//                 "DB_USER": "postgres",
+//                 "DB_PASSWORD": "Karin0913",
+//                 "DJANGO_SETTINGS_MODULE":"kouka1_app.settings"
+//             }
+            
+//         }
+//     ]
+// }
