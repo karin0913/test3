@@ -1,10 +1,5 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block header %}
 <!DOCTYPE html>
 <html lang="ja">
-{% endblock %}
-{% block contents %}
   <body>
     <form method="POST" action="create_account">
       {% csrf_token %}
@@ -21,4 +16,3 @@
     </form>
   </body>
 </html>
-{% endblock %}
