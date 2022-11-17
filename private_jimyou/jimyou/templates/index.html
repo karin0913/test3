@@ -1,34 +1,9 @@
-<!-- https://www.google.com/search?q=%E3%81%8A%E3%81%97%E3%82%83%E3%82%8C%E3%81%AA%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E3%80%80%EF%BD%83%EF%BD%93%EF%BD%93%E3%80%80%EF%BD%8A%EF%BD%93&tbm=isch&ved=2ahUKEwj0lLrj7cX6AhWFyosBHVtxAZIQ2-cCegQIABAA&oq=%E3%81%8A%E3%81%97%E3%82%83%E3%82%8C%E3%81%AA%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E3%80%80%EF%BD%83%EF%BD%93%EF%BD%93%E3%80%80%EF%BD%8A%EF%BD%93&gs_lcp=CgNpbWcQAzoECCMQJzoHCAAQgAQQBDoJCAAQgAQQBBAYOgUIABCABDoHCAAQgAQQGFDvBFj6NmChO2gDcAB4AIABVYgB0gaSAQIxMZgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=r8Y7Y7SBC4WVr7wP2-KFkAk&bih=872&biw=871#imgrc=lUUHRvn_oILKfM
- -->
 {% extends 'base.html' %}
 {% load static %}
-{% block header %}
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-  <!-- Head -->
-  <head>
-    <title>Home Page</title> 
-    <!-- Meta -->
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="keywords" content="Bootstrap Theme, Freebies, UI Kit, MIT license">
-    <meta name="description" content="Stream - UI Kit">
-    <meta name="author" content="htmlstream.com">
-    <link rel="shortcut icon" href="{% static '/assets/favicon.ico' %}" type="image/x-icon">
-    <!-- Web Fonts -->
-    <link href="//fonts.googleapis.com/css?family=Playfair+Display:400,700%7COpen+Sans:300,400,600,700" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <!-- Bootstrap Styles -->
-    <link rel="stylesheet" type="text/css" href="{% static '/assets/vendors/bootstrap/css/bootstrap.css' %}">
-    <!-- Components Vendor Styles -->
-    <link rel="stylesheet" type="text/css" href="{% static '/assets/vendors/font-awesome/css/fontawesome-all.min.css' %}">
-    <!-- Theme Styles -->
-    <link rel="stylesheet" type="text/css" href="{% static '/assets/css/style2.css' %}">
-  </head>
-  {% endblock %}
-  {% block contents %}
-  <body>
+{% block title %}Home Page{% endblock %}
+{% block header %}{% endblock %}
+{% block contents %}
+<link rel="stylesheet" type="text/css" href="{% static '/assets/css/style2.css' %}">
   <div id="form">
     <p class="form-title">Login</p>
     <form action="post">
@@ -41,21 +16,9 @@
         <input type="password" name="pass" />
       </p>
       <p class="submit">
-        <input type="submit" value="Login" />
+        <input type="submit" value="login" />
       </p>
     </form>
   </div>
-    <!-- JavaScriptファイル読み込み -->
-    <script type="text/javascript" src="{% static '/assets/vendors/jquery.min.js'%}"></script>
-    <script type="text/javascript" src="{% static '/assets/vendors/jquery.migrate.min.js'%}"></script>
-    <script type="text/javascript" src="{% static '/assets/vendors/popper.min.js'%}"></script>
-    <script type="text/javascript" src="{% static '/assets/vendors/bootstrap/js/bootstrap.min.js'%}"></script>
-    <!-- Components Vendor  -->
-    <script type="text/javascript" src="{% static '/assets/vendors/jquery.parallax.js'%}"></script>
-    <!-- Theme Settings and Calls -->
-    <script type="text/javascript" src="{% static '/assets/js/global.js'%}"></script>
-    <!-- Theme Components and Settings -->
-    <script type="text/javascript" src="{% static '/assets/js/vendors/parallax.js'%}"></script>
-  </body>
-  {% endblock %}
-</html> 
+  <a class="nav-link" href="{% url 'login' %}">Login</a>
+{% endblock %}

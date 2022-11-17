@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>メイン画面</title>
-</head>
-<body>
+{% extends 'login_app/base.html' %}
+{% load static %}
+
+{% block header %}{% endblock %}
+{% block contents %}
     {% if user.id  %}
     <p>ログインユーザー：{{user.username}}</p><br>
     <p>ログインしました。</p>
-    <p><a href="{% url 'logout' %}">ログアウト</a></p>
     {% else %}
     <a href="{% url 'login' %}">ログイン</a>
     <a href="{% url 'create_account' %}">アカウント作成</a>
-
+    </form>
     {% endif %}
-</body>
-
-</html>
+{% endblock %}

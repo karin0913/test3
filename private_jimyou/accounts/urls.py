@@ -5,17 +5,8 @@ from django.contrib import admin
 # from django.contrib.auth.views import login, logout
 
 urlpatterns = [
-    path('templates/login_app/index.html',  views.View.as_view(), name='index'),
-    path('templates/registration/create.html',  views.View.as_view(), name='create'),
-    path('', include('django.contrib.auth.urls')),
-    # path('home-page.html', views.HomeView.as_view(), name="home-page"),
+    url(r'^admin/', admin.site.urls),
+    path('', views.index, name="index"),
+    path('create/', views.Create_Account.as_view(), name="create_account"),
+    path('login/', views.Account_login.as_view(), name="login"),
 ]
-
-
-# urlpatterns = [
-#     url(r'^admin/', admin.site.urls),
-#     url(r'^$', views.index, name='index'),
-#     url(r'^create/$', views.create_account, name='create_account'),
-#     url(r'^login/$', views.account_login, name='login'),
-#     url(r'^logout/$', logout, {'template_name': 'index.html'}, name='logout'),
-# ]

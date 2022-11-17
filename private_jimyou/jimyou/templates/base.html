@@ -1,8 +1,8 @@
 {% load static %}
-{% block header %}
-<html lang="en" class="no-js">
+
+<html lang="ja">
 <head>
-    <title>base.html</title>
+    <title>{% block title %}{% endblock %}</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -70,14 +70,73 @@
         font-size: 90px;
       }
     </style>
+    {% block head %}{% endblock %}
   </head>
-  {% endblock %}
-<body id="js-home">
 
-  {% block contents %}
-
-    <!-- JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) -->
-    <!-- Global Vendor -->
+    <body>
+      <nav class="js-navbar-scroll navbar fixed-top navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="home-page.html">
+            <img src="{% static '/assets/img/logo-white.png' %}" alt="Stream UI Kit" style="width: 100px;">
+          </a>
+    
+          <button class="navbar-toggler" type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarTogglerDemo"
+    
+                  aria-controls="navbarTogglerDemo"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo">
+            <ul class="navbar-nav mt-2 mt-lg-0">
+              <li class="nav-item mr-4 mb-2 mb-lg-0">
+                <a class="nav-link active" href="/">Back to UI Kit</a>
+              </li>
+            </ul>
+    
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+              <li class="nav-item mr-4 mb-2 mb-lg-0">
+                <a class="nav-link active" href="home-page.html">Home</a>
+              </li>
+              <li class="nav-item mr-4 mb-2 mb-lg-0">
+                <a class="nav-link" href="services.html">Services</a>
+              </li>
+              <li class="nav-item dropdown mr-4 mb-2 mb-lg-0">
+                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  About <i class="fas fa-angle-down small ml-1"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="about-us.html">About Us</a>
+                  <a class="dropdown-item" href="about-me.html">About Me</a>
+                </div>
+              </li>
+              <li class="nav-item mr-4 mb-2 mb-lg-0">
+                <a class="nav-link" href="contacts.html">Contacts</a>
+              </li>
+    
+              <!-- 付け足し -->
+              <li class="nav-item mr-4 mb-2 mb-lg-0">
+                <a class="nav-link" href="hm.html">test</a>
+              </li>
+              <li class="nav-item mr-4 mb-2 mb-lg-0">
+                <a class="nav-link" href="{% url 'login' %}">accounts</a>
+              </li>
+              <!-- ここまで -->
+              
+            </ul>
+            <div>
+              <a class="btn btn-primary" data-toggle="modal" href="#callUsModal" href="#!">
+                <i class="fas fa-phone-square mr-1"></i> Call Me
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <section class="js-parallax u-promo-block u-promo-block--mheight-500 u-overlay u-overlay--dark text-white" style="background-image: url(../../static/assets/img-temp/1920x1080/img7.jpg);"></section>
+    {% block contents%}{% endblock %}
     <script type="text/javascript" src="{% static '/assets/vendors/jquery.min.js'%}"></script>
     <script type="text/javascript" src="{% static '/assets/vendors/jquery.migrate.min.js'%}"></script>
     <script type="text/javascript" src="{% static '/assets/vendors/popper.min.js'%}"></script>
@@ -100,4 +159,3 @@
     <!-- END JAVASCRIPTS -->
 </body>
 </html>
-{% endblock %}
