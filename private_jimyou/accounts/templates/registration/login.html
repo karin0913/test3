@@ -1,12 +1,12 @@
 {% extends 'registration/base.html' %}
 {% load static %}
-
+{% block title %}test{% endblock %}
 {% block header %}{% endblock %}
 {% block contents %}
   {% if form.errors  %}
   <p>ユーザーID, パスワードが一致しません．</p>
   {% endif %}
-  <form method="POST" action="{% url 'login' %}">
+  <form method="POST" action="login">
     {% csrf_token %}
     <label>ユーザーID</label>
     {{ form.username }}

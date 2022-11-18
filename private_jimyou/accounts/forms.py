@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
+from .models import CustomUser
 
 class LoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
@@ -19,5 +20,5 @@ class UserCreateForm(UserCreationForm):
         self.fields['password2'].widget.attrs['class'] = 'form-control'
 
     class Meta:
-       model = User
+       model = CustomUser
        fields = ("username", "password1", "password2",)
