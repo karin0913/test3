@@ -6,6 +6,7 @@
     {% if user.id  %}
     <p>ログインユーザー：{{user.username}}</p><br>
     <p>ログインしました。</p>
+    <a href="{% url 'logout' %}">ログアウト</a>
     {% else %}
     <a href="{% url 'login' %}">ログイン</a>
     <a href="{% url 'create_account' %}">アカウント作成</a>

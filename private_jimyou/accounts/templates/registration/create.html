@@ -3,7 +3,7 @@
 
 {% block header %}{% endblock %}
 {% block contents %}
-  <form method="POST" action="create_account">
+  <form method="POST" action="{% url 'create_account' %}">
     {% csrf_token %}
     <label>ユーザーID</label>
     <div>{{ form.username }}{{ form.username.errors }}</div>

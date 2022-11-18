@@ -6,6 +6,10 @@ from django.contrib.auth.models import User
 from .models import CustomUser
 from django.views.generic import CreateView,TemplateView
 from . forms import UserCreateForm, LoginForm
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import login, logout
+
 
 def index(request):
   template_name = "login_app/index.html" # templates以下のパスを書く
@@ -17,6 +21,12 @@ def main_page(request):
 def new_login_page(request):
     return render(request, 'registration/create.html')
 
+def logout_page(request):
+    return render(request, 'registration/logout.html')
+
+class LogoutView(LoginRequiredMixin, LogoutView):
+    """ログアウトページ"""
+    template_name = "login_app/index.html"
 
 
 #アカウント作成

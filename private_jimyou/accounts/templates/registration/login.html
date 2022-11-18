@@ -6,7 +6,7 @@
   {% if form.errors  %}
   <p>ユーザーID, パスワードが一致しません．</p>
   {% endif %}
-  <form method="POST" action="login">
+  <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
     <label>ユーザーID</label>
     {{ form.username }}

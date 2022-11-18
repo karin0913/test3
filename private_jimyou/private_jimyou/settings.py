@@ -185,5 +185,5 @@ LOGGING = {
 # accountsの設定
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'login_app:index'
-LOGOUT_REDIRECT_URL = 'logout_app:logut'
+LOGOUT_REDIRECT_URL = "login_app:index"
 ACCOUNT_LOGOUT_REDIRECT_URL = 'logout'
