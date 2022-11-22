@@ -1,3 +1,2 @@
-from django.db import models
+# https://zenn.dev/shimakaze_soft/articles/7f3a12881614b5
 
-# Create your models here.

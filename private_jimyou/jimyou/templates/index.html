@@ -3,22 +3,5 @@
 {% block title %}Home Page{% endblock %}
 {% block header %}{% endblock %}
 {% block contents %}
-<link rel="stylesheet" type="text/css" href="{% static '/assets/css/style2.css' %}">
-  <div id="form">
-    <p class="form-title">Login</p>
-    <form action="post">
-      <p>Email</p>
-      <p class="mail">
-        <input type="email" name="mail" />
-      </p>
-      <p>Password</p>
-      <p class="pass">
-        <input type="password" name="pass" />
-      </p>
-      <p class="submit">
-        <input type="submit" value="login" />
-      </p>
-    </form>
-  </div>
-  <a class="nav-link" href="{% url 'login' %}">Login</a>
+
 {% endblock %}
