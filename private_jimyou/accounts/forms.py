@@ -46,7 +46,7 @@ class UserCreateForm(UserCreationForm):
         else:
             raise ValidationError("このメールアドレスは既に使用されています。別のメールアドレスを指定して下さい。")
 
-class UserChangeForm(forms.ModelForm):
+class UserUpdateForm(forms.ModelForm):
  
     # 入力を必須にするために、required=Trueで上書き
     birthday = forms.CharField(required=True)

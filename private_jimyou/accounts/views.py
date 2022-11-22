@@ -4,8 +4,8 @@ from django.views import generic
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from .models import CustomUser
-from django.views.generic import CreateView,TemplateView
-from . forms import UserCreateForm, LoginForm
+from django.views.generic import CreateView,TemplateView,UpdateView
+from . forms import UserCreateForm, LoginForm, UserUpdateForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login, logout
@@ -67,6 +67,15 @@ class Account_login(View):
         return render(request, 'registration/login.html', {'form': form,})
 
 account_login = Account_login.as_view()
+
+#ユーザー情報更新
+class UserUpdateForm(UpdateView):
+    model = CustomUser
+    form_class = UserUpdateForm
+    template_name = 'registration/user_form.html'
+
+
+
 
 # https://qiita.com/knakajima3027/items/34b2a105da7cdb411736
 # https://teratail.com/questions/270692
