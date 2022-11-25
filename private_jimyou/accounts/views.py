@@ -3,7 +3,7 @@ from django.views import View
 from django.views import generic
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
-from .models import CustomUser
+from .models import CustomUser,Profile
 from django.views.generic import CreateView,TemplateView,UpdateView
 from . forms import UserCreateForm, LoginForm, UserUpdateForm
 from django.contrib.auth.views import LoginView, LogoutView
@@ -44,6 +44,8 @@ class Create_Account(CreateView):
             login(request, user)
             return redirect('/')
         return render(request, 'registration/create.html', {'form': form,})
+    def get(self, request, *args, **kwargs):
+        checks_value = request.POST.getlist('checks[]')
 
     def get(self, request, *args, **kwargs):
         form = UserCreateForm(request.POST)
@@ -73,6 +75,8 @@ class UserUpdateForm(UpdateView):
     model = CustomUser
     form_class = UserUpdateForm
     template_name = 'registration/user_form.html'
+
+# class test()
 
 
 

@@ -18,7 +18,6 @@ class LoginForm(AuthenticationForm):
 
 class UserCreateForm(UserCreationForm):
     birthday = forms.CharField(required=True)
-    email = forms.EmailField(max_length=30, required=True)
     userver = forms.CharField(max_length=30, required=True)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -26,25 +25,11 @@ class UserCreateForm(UserCreationForm):
         self.fields['password1'].widget.attrs['class'] = 'form-control'
         self.fields['password2'].widget.attrs['class'] = 'form-control'
         self.fields['birthday'].widget.attrs['class'] = 'form-control'
-        self.fields['email'].widget.attrs['class'] = 'form-control'
         self.fields['userver'].widget.attrs['class'] = 'form-control'
 
     class Meta:
        model = CustomUser
        fields = ("username", "password1", "password2","birthday","email","userver")
-    def clean_email(self):
-        email = self.cleaned_data["email"]
-        try:
-            validate_email(email)
-        except ValidationError:
-            raise ValidationError("正しいメールアドレスを指定して下さい。")
- 
-        try:
-            User.objects.get(email=email)
-        except User.DoesNotExist:
-            return email
-        else:
-            raise ValidationError("このメールアドレスは既に使用されています。別のメールアドレスを指定して下さい。")
 
 class UserUpdateForm(forms.ModelForm):
  

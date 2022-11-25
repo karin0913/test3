@@ -13,10 +13,12 @@
     <div>{{ form.password2 }}{{ form.password2.errors }}</div>
     <label>生年月日</label>
     <div>{{ form.birthday }}{{ form.birthday.errors }}</div>
-    <label>メールアドレス</label>
-    <div>{{ form.email }}{{ form.email.errors }}</div>
     <label>userdata</label>
     <div>{{ form.userver }}{{ form.userver.errors }}</div>
+    <input type="checkbox" name="checks[]" value="1" />
+    <input type="checkbox" name="checks[]" value="2" />
     <button type = "submit">登録</button>
   </form>
 {% endblock %}
+
+<!-- https://www.techpit.jp/courses/65/curriculums/68/sections/551/parts/1898 -->

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'jimyou.apps.JimyouConfig',
     'accounts.apps.AccountsConfig',
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
