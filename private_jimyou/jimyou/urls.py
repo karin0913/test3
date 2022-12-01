@@ -3,7 +3,8 @@ from . import views
 
 app_name = 'jimyou'
 urlpatterns = [
-    path('', views.IndexView.as_view(), name="index"),
+    # path('', views.IndexView.as_view(), name="index"),
+    path('', views.home_view, name="index"),
     path('home-page.html', views.HomeView.as_view(), name="home-page"),
     path('services.html', views.ServicesView.as_view(), name="services"),
     path('about-us.html', views.AboutusView.as_view(), name="about-us"),

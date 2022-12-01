@@ -2,17 +2,20 @@ import os
 
 from django import forms
 from django.core.mail import EmailMessage
+from accounts.models import CustomUser
+from .models import Profiletest
+class CreateForm(forms.ModelForm):
+    class Meta:
+        model = Profiletest
+        fields = ('user', 'limit', 'title', 'text')
 
-# from .models import Profile
-# class CreateForm(forms.ModelForm):
-#     class Meta:
-#         model = Profile
-#         fields = ('gender', 'birthday', 'location', 'favorite_words')
+        # 入力を必須にするために、required=Trueで上書き
 
-#     def __init__(self, *args, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         for field in self.fields.values():
-#             field.widget.attrs['class'] = 'form-control'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs['class'] = 'form-control'
 
 #from django import forms
 # https://hombre-nuevo.com/python/python0038/

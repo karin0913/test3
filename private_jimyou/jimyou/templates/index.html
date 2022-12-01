@@ -2,6 +2,11 @@
 {% load static %}
 {% block title %}Home Page{% endblock %}
 {% block header %}{% endblock %}
+{% block section %}<section class="js-parallax u-promo-block u-promo-block--mheight-600 u-overlay u-overlay--dark text-white" style="background-image: url(static/assets/img-temp/1920x1080/img3.jpg);"></section>{% endblock %}
 {% block contents %}
-
+<form method="POST" action="/">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type = "submit">登録</button>
+  </form>
 {% endblock %}

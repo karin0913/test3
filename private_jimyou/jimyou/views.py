@@ -28,6 +28,27 @@ class HmView(generic.TemplateView):
 class GurafuView(generic.TemplateView):
     template_name = "gurafu.html"
 
+from .forms import CreateForm
+def home_view(request):
+    context = {}
+    context['form'] = CreateForm()
+    return render(request, 'index.html', context)
+# fields = ('user', 'limit', 'title', 'text')
+# from .models import Post
+# from django.http import HttpResponse
+# def create_view(request):
+#     form = CreateForm(request.POST)
+#     if not form.is_valid():
+#         return HttpResponse('invalid', status=500)
+
+#     user = form.cleaned_data['user']
+#     limit = form.cleaned_data['limit']
+#     title = form.cleaned_data['title']
+#     text = form.cleaned_data['text']
+
+#     post = Post.objects.create(name=name, content=content)
+
+#     return HttpResponse(f'{post.id}')
 
 
 
