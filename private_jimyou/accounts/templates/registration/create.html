@@ -15,8 +15,11 @@
     <div>{{ form.birthday }}{{ form.birthday.errors }}</div>
     <label>userdata</label>
     <div>{{ form.userver }}{{ form.userver.errors }}</div>
-    <input type="checkbox" name="checks[]" value="1" />
+    <label>
+      <input type="checkbox" name="checks[]" value="1" />
     <input type="checkbox" name="checks[]" value="2" />
+    </label>
+    
     <button type = "submit">登録</button>
   </form>
 {% endblock %}
