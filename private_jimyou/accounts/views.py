@@ -76,7 +76,8 @@ class UserUpdateForm(UpdateView):
     form_class = UserUpdateForm
     template_name = 'registration/user_form.html'
 
-# class test()
+# labels = ['日本','アメリカ合衆国','中華人民共和国','ウクライナ']
+#     user_country = forms.ChoiceField(label=labels[2],required=True,disabled=False,widget=forms.Select(attrs={'id': 'three',}))
 
 
 

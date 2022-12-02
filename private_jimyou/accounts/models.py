@@ -1,9 +1,22 @@
 from django.contrib.auth.models import AbstractUser
+from django.db import models
 
 class CustomUser(AbstractUser):
     """拡張ユーザーモデル"""
     class Meta:
         verbose_name_plural = 'CustomUser'
+
+
+class Customprofile(models.Model):
+    user_id = models.ForeignKey(CustomUser,verbose_name='ユーザー',on_delete=models.PROTECT)
+    user_birthday = models.DateField(verbose_name='誕生日',null=True, blank=True)
+    COUNTRY_CHOICES = ((u'j', u'日本'),(u'a', u'アメリカ合衆国'),(u'c', u'中華人民共和国'),(u'u', u'ウクライナ'))
+    user_country = models.CharField(max_length=3, default=u'日本',choices=COUNTRY_CHOICES)
+    GENDER_CHOICES = ((u'M', u'Male'),(u'F', u'Female'),(u'N', u'未回答'))
+    gender = models.CharField(max_length=2, default=u'未回答',choices=GENDER_CHOICES)
+
+
+
 
 # https://hodalog.com/how-to-extend-django-user-model/
 # https://www.maytisk.com/django-login/

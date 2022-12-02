@@ -34,7 +34,8 @@ def home_view(request):
     context['form'] = CreateForm()
     return render(request, 'index.html', context)
 # fields = ('user', 'limit', 'title', 'text')
-# from .models import Post
+
+# from .models import Profiletest
 # from django.http import HttpResponse
 # def create_view(request):
 #     form = CreateForm(request.POST)
@@ -46,7 +47,7 @@ def home_view(request):
 #     title = form.cleaned_data['title']
 #     text = form.cleaned_data['text']
 
-#     post = Post.objects.create(name=name, content=content)
+#     post = Profiletest.objects.create(user=user, limit=limit,title=title, text=text)
 
 #     return HttpResponse(f'{post.id}')
 

@@ -6,7 +6,8 @@
     {% if user.id  %}
     <p>ログインユーザー：{{user.username}}</p><br>
     <p>ログインしました。</p>
-    <p>{{user.birthday}}</p>
+    <p>{{obj.user_birthday}}</p>
+    <p>{{ request.user_birthday }}</p>
     <a href="{% url 'update_account' %}">情報更新</a>
     <a href="{% url 'logout' %}">ログアウト</a>
     {% else %}
