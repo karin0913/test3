@@ -1,10 +1,26 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.contrib.auth.models import User
 
 class CustomUser(AbstractUser):
     """拡張ユーザーモデル"""
+    # email = models.EmailField(max_length=30, required=True)
+    # birthday = models.DateField(verbose_name='誕生日',null=True, blank=True)
+    # country = models.CharField(verbose_name='国籍',null=True, blank=True)
+    # gender = models.CharField(verbose_name='性別',null=True, blank=True)
     class Meta:
         verbose_name_plural = 'CustomUser'
+
+# class test(models.Model):
+#     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+#     gender = models.CharField(max_length=20, blank=True)
+#     birth_date = models.DateField(null=True, blank=True)
+#     location = models.CharField(max_length=30, blank=True)
+#     favorite_words = models.CharField(max_length=50, blank=True)
+#     birthday = models.DateField(null=True, blank=True)
+#     country = models.CharField(null=True, blank=True,max_length=256)
+#     gender = models.CharField(null=True, blank=True,max_length=256)
+
 
 
 class Customprofile(models.Model):
