@@ -1,10 +1,10 @@
 # https://zenn.dev/shimakaze_soft/articles/7f3a12881614b5
 from django.db import models
-from accounts.models import CustomUser
+from accounts.models import Usertest
 
 
 class Profiletest(models.Model):
-    user = models.ForeignKey(CustomUser,verbose_name='ユーザー',on_delete=models.PROTECT)
+    user = models.ForeignKey(Usertest,verbose_name='ユーザー',on_delete=models.PROTECT)
     limit = models.DateField(verbose_name='目標達成日',null=True, blank=True)
     title = models.CharField(verbose_name='目標の名前',max_length=30, blank=True)
     text = models.CharField(verbose_name='目標の説明',max_length=50, blank=True)

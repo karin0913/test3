@@ -2,7 +2,7 @@ import os
 
 from django import forms
 from django.core.mail import EmailMessage
-from accounts.models import CustomUser
+from accounts.models import Usertest
 from .models import Profiletest
 class CreateForm(forms.ModelForm):
     class Meta:
@@ -23,7 +23,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
-from .models import CustomUser
+from .models import Usertest,Profiletest
 from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
@@ -44,11 +44,12 @@ class UserCreateForm(UserCreationForm):
         self.fields['password1'].widget.attrs['class'] = 'form-control'
         self.fields['password2'].widget.attrs['class'] = 'form-control'
         self.fields['birthday'].widget.attrs['class'] = 'form-control'
-        self.fields['userver'].widget.attrs['class'] = 'form-control'
+        self.fields['country'].widget.attrs['class'] = 'form-control'
+        self.fields['gender'].widget.attrs['class'] = 'form-control'
 
     class Meta:
-       model = CustomUser
-       fields = ("username", "password1", "password2","birthday","email","userver")
+       model = Usertest
+       fields = ("username", "password1", "password2","birthday","country","gender")
 
 class UserUpdateForm(forms.ModelForm):
  
@@ -91,3 +92,17 @@ class UserUpdateForm(forms.ModelForm):
  
 class UserPasswordChangeForm(PasswordChangeForm):
     pass
+
+
+class ProfileCreateForm(UserCreationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['user'].widget.attrs['class'] = 'form-control'
+        self.fields['limit'].widget.attrs['class'] = 'form-control'
+        self.fields['title'].widget.attrs['class'] = 'form-control'
+        self.fields['text'].widget.attrs['class'] = 'form-control'
+        self.fields['text1'].widget.attrs['class'] = 'form-control'
+
+    class Meta:
+       model = Profiletest
+       fields = ("user","limit", "title","text","text1")

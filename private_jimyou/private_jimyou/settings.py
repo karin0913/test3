@@ -108,8 +108,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'accounts.CustomUser'
-# AUTH_USER_MODEL = 'accounts.test'
+# AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = 'accounts.Usertest'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

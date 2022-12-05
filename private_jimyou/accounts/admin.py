@@ -1,8 +1,8 @@
 from django.contrib import admin
-from.models import CustomUser,Customprofile
+from.models import Usertest
 
-admin.site.register(CustomUser)
-admin.site.register(Customprofile)
-# admin.site.register(test)
+# admin.site.register(CustomUser)
+
+admin.site.register(Usertest)
 
 

@@ -13,13 +13,11 @@
     <div>{{ form.password2 }}{{ form.password2.errors }}</div>
     <label>生年月日</label>
     <div>{{ form.birthday }}{{ form.birthday.errors }}</div>
-    <label>userdata</label>
-    <div>{{ form.userver }}{{ form.userver.errors }}</div>
-    <label>
-      <input type="checkbox" name="checks[]" value="1" />
-    <input type="checkbox" name="checks[]" value="2" />
-    </label>
-    
+    <label>国籍</label>
+    <div>{{ form.country }}{{ form.country.errors }}</div>
+    <label>性別</label>
+    <div>{{ form.gender }}{{ form.gender.errors }}</div>
+  
     <button type = "submit">登録</button>
   </form>
 {% endblock %}
