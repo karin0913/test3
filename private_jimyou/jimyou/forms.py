@@ -8,10 +8,6 @@ class CreateForm(forms.ModelForm):
     class Meta:
         model = Profiletest
         fields = ('user', 'limit', 'title', 'text')
-
-        # 入力を必須にするために、required=Trueで上書き
-
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():

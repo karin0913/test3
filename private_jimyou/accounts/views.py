@@ -4,21 +4,30 @@ from django.views import generic
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from .models import Usertest
+from jimyou.models import Profiletest
 from django.views.generic import CreateView,TemplateView,UpdateView
-from jimyou.forms import UserCreateForm, LoginForm, UserUpdateForm,ProfileCreateForm
+from jimyou.forms import UserCreateForm, LoginForm, UserUpdateForm,ProfileCreateForm,CreateForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login, logout
 
-
-from datetime import datetime
-from datetime import datetime,timedelta
+import datetime
+from django.utils import timezone
+from datetime import datetime, timedelta
 def index(request):
   template_name = "login_app/index.html" # templates以下のパスを書く
   birthday = Usertest.objects.all().values("birthday")
   test = '2002-01-01'
 # 171.55 2083344+172limitdata = 81.47  
-#   birthday = birthday + datetime.timedelta(years=+81,months=+5,days=+22)
+#   date_format = "%Y-%m-%d"
+#   birthday = datetime.strptime(birthday, date_format)
+#   birthday = birthday.year
+#   <QuerySet [{'birthday': datetime.date(2002, 12, 11)}]>
+#   birthday = birthday + timedelta(days=81)
+#   birthday = datetime.strptime(birthday, '%Y%m%d')
+#   birthday = datetime.strptime(birthday)
+
+
   ctx = {"birthday": birthday,}
   return render(request,template_name,ctx)
 
@@ -84,9 +93,9 @@ class UserUpdateForm(UpdateView):
     template_name = 'registration/user_form.html'
 
 from datetime import datetime
-import django.utils.timezone
+
 class ProfileForm(UpdateView):
-    model = Usertest
+    model = Profiletest
     # def get_birthday(self, request, *args, **kwargs):
     #     # form = ProfileCreateForm(data=request.POST)
     #     # birthday = Usertest.objects.all().values("birthday")
@@ -100,13 +109,13 @@ class ProfileForm(UpdateView):
     #     return render(request, 'registration/profilecreate.html',ctx)
 
     def post(self, request, *args, **kwargs):
-        form = ProfileCreateForm(data=request.POST)
+        form = CreateForm(data=request.POST)
         return render(request, 'registration/profilecreate.html', {'form': form,})
     def get(self, request, *args, **kwargs):
         checks_value = request.POST.getlist('checks[]')
 
     def get(self, request, *args, **kwargs):
-        form = ProfileCreateForm(request.POST)
+        form = CreateForm(request.POST)
         return  render(request, 'registration/profilecreate.html', {'form': form,})
 
 
