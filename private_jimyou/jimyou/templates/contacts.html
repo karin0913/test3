@@ -120,43 +120,6 @@
     <!-- End Header -->
     {% endblock %}
     {% block contents %}
-    <main role="main">
-      <!-- Icon Block -->
-      <section class="container-fluid">
-        <div class="row text-center u-icon-block">
-          <!-- Icon Block Column -->
-          <div class="col-lg-4 u-icon-block__col">
-            <span class="u-icon u-icon-primary u-icon--size--xl rounded-circle mb-4">
-              <span class="fas fa-map u-icon__inner text-white"></span>
-            </span>
-            <h3 class="h5">Address</h3>
-            <p class="mb-0">61 Oxford str., London, 3DG</p>
-          </div>
-          <!-- End Icon Block Column -->
-
-          <!-- Icon Block Column -->
-          <div class="col-lg-4 u-icon-block__col u-icon-block__col--left-brd">
-            <span class="u-icon u-icon-primary u-icon--size--xl rounded-circle mb-4">
-              <span class="fas fa-mobile u-icon__inner text-white"></span>
-            </span>
-            <h3 class="h5">Phone Number</h3>
-            <p class="mb-0">1-800-643-4500</p>
-          </div>
-          <!-- End Icon Block Column -->
-
-          <!-- Icon Block Column -->
-          <div class="col-lg-4 u-icon-block__col u-icon-block__col--left-brd">
-            <span class="u-icon u-icon-primary u-icon--size--xl rounded-circle mb-4">
-              <span class="fas fa-envelope-open u-icon__inner text-white"></span>
-            </span>
-            <h3 class="h5">Email</h3>
-            <p class="mb-0">mail@htmlstream.com</p>
-          </div>
-          <!-- End Icon Block Column -->
-        </div>
-      </section>
-      <!-- End Icon Block -->
-
       <!-- Contact Form -->
       <section class="u-content-space">
         <div class="container">
@@ -164,32 +127,20 @@
             <h2 class="h1">Tell us about yourself</h2>
             <p class="h5">Your business needs a little push. We strive to figure out ways to help your audience grow.</p>
           </header>
-
-          <form class="text-center w-md-75 mx-auto" action="#">
-            <div class="row">
-              <div class="col-lg-6 form-group mb-4">
-                <input class="form-control form-control-lg" placeholder="Name" type="text">
-              </div>
-
-              <div class="col-lg-6 form-group mb-4">
-                <input class="form-control form-control-lg" placeholder="Email" type="email">
-              </div>
-
-              <div class="col-lg-6 form-group mb-4">
-                <input class="form-control form-control-lg" placeholder="Subject" type="text">
-              </div>
-
-              <div class="col-lg-6 form-group mb-4">
-                <input class="form-control form-control-lg" placeholder="Phone" type="tel">
-              </div>
-
-              <div class="col-lg-12 form-group mb-6">
-                <textarea class="form-control form-control-lg" rows="7" placeholder="Message"></textarea>
-              </div>
-            </div>
-
+          <form action="" method="POST">
+            {% csrf_token %}
+            <table class="tabel">
+                <label>ユーザーID</label>
+                <div class="col-lg-6 form-group mb-4">{{ form.user }}{{ form.user.errors }}</div>
+                <label>夢：目標の達成日</label>
+                <div class="col-lg-6 form-group mb-4">{{ form.limit }}{{ form.limit.errors }}</div>
+                <label>夢：目標の名前</label>
+                <div class="col-lg-6 form-group mb-4">{{ form.title }}{{ form.title.errors }}</div>
+                <label>夢：目標の説明</label>
+                <div class="col-lg-12 form-group mb-6">{{ form.text }}{{ form.text.errors }}</div>
+            </table>
             <div class="text-center">
-              <button class="btn btn-lg btn-primary py-3 px-4" type="submit">Send Your Message</button>
+              <button class="btn btn-lg btn-primary py-3 px-4" type="submit">登録</button>
             </div>
           </form>
         </div>

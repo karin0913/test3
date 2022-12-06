@@ -2,11 +2,86 @@
 {% load static %}
 {% block title %}Home Page{% endblock %}
 {% block header %}{% endblock %}
-{% block section %}<section class="js-parallax u-promo-block u-promo-block--mheight-600 u-overlay u-overlay--dark text-white" style="background-image: url(static/assets/img-temp/1920x1080/img3.jpg);"></section>{% endblock %}
+{% block section %}
+<section class="js-parallax u-promo-block u-promo-block--mheight-500 u-overlay u-overlay--dark text-white" style="background-image: url(../../static/assets/img-temp/1920x1080/img8.jpg);">
+  <div class="container u-overlay__inner u-ver-center u-content-space">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="text-center">
+          <h1 class="display-sm-4 display-lg-3">残りの時間表示場所</h1>
+          <p class="h6 text-uppercase u-letter-spacing-sm mb-0">その人の平均寿命を書く</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
 {% block contents %}
-<form method="POST" action="/create/">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type = "submit">登録</button>
-  </form>
+<section class="bg-light u-content-space">
+  <div class="container">
+    <header class="text-center w-md-50 mx-auto mb-8">
+      <h2 class="h1">Features</h2>
+      <p class="h5">We help everyone achieve their dreams and goals</p>
+    </header>
+
+    <!-- Feature Blocks -->
+    <div class="row">
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <div class="display-4 text-primary mb-2">
+          <i class="fab fa-grav"></i>
+        </div>
+        <a h4 class="h5" href="{% url 'create_account' %}">Account create</h4>
+        <p></p>
+      </div>
+
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <div class="display-4 text-primary mb-2">
+          <i class="fab fa-connectdevelop"></i>
+        </div>
+        <a h4 class="h5" href="{% url 'login' %}">Account login</h4>
+        <p></p>
+      </div>
+
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <div class="display-4 text-primary mb-2">
+          <i class="fas fa-cubes"></i>
+        </div>
+        <a h4 class="h5" href="{% url 'update_account' %}">Account update</h4>
+        <p>アカウントの編集をします</p>
+      </div>
+    </div>
+    <!-- End Feature Blocks -->
+
+    <hr class="my-8">
+
+    <!-- Feature Blocks -->
+    <div class="row">
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <div class="display-4 text-primary mb-2">
+          <i class="fab fa-vuejs"></i>
+        </div>
+        <a h4 class="h5" href="contacts.html">dream create</h4>
+        <p>夢の登録をします</p>
+      </div>
+
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <div class="display-4 text-primary mb-2">
+          <i class="fab fa-react"></i>
+        </div>
+        <a h4 class="h5" href="services.html">dream list</h4>
+        <p>夢の一覧を表示します</p>
+      </div>
+
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <div class="display-4 text-primary mb-2">
+          <i class="fab fa-angular"></i>
+        </div>
+        <a h4 class="h5" href="{% url 'create_profile' %}">登録</h4>
+        <p>登録の仕方について説明します</p>
+      </div>
+    </div>
+    <!-- End Feature Blocks -->
+  </div>
+</section>
+<a href="{% url 'create_profile' %}">目標作成</a>
 {% endblock %}

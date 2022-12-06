@@ -7,14 +7,12 @@
     {% csrf_token %}
     <label>ユーザーID</label>
     <div>{{ form.user }}{{ form.user.errors }}</div>
-    <label>目標達成日</label>
+    <label>夢：目標達成日</label>
     <div>{{ form.limit }}{{ form.limit.errors }}</div>
-    <label>タイトル</label>
+    <label>夢：目標の名前</label>
     <div>{{ form.title }}{{ form.title.errors }}</div>
-    <label>テキストボックス</label>
+    <label>夢：目標の説明</label>
     <div>{{ form.text }}{{ form.text.errors }}</div>
-    <label>テキストボックス１</label>
-    <div>{{ form.text1 }}{{ form.text1.errors }}</div>
     <button type = "submit">登録</button>
 </form>
 {% endblock %}

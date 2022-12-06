@@ -33,7 +33,6 @@ class LoginForm(AuthenticationForm):
 
 class UserCreateForm(UserCreationForm):
     birthday = forms.CharField(required=True)
-    userver = forms.CharField(max_length=30, required=True)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].widget.attrs['class'] = 'form-control'

@@ -80,78 +80,42 @@
       </div>
     </div>
   </section>
-  <!-- End Our Product -->
+  <p></p><p></p><br><br><br><br><br><br><br><br>
+  <h1>夢：目標　一覧</h1>
+  <table class="table">
+    <thead>
+        <tr>
+            <th>タイトル</th>
+            <th>日付</th>
+            <th>更新処理</th>
+            <th>削除処理</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for Profiletest in profile_list %}
+        <tr>
+            <td><a href="{% url 'profile_detail' Profiletest.pk %}">{{ Profiletest.title }}</a></td>
+            <td>{{ Profiletest.limit }}</td>
+            <td><a href="{% url 'profile_update' Profiletest.pk %}">更新</a></td>
+            <td><a href="{% url 'profile_delete' Profiletest.pk %}">削除</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 
-  <!-- Features -->
-  <section class="bg-light u-content-space">
-    <div class="container">
-      <header class="text-center w-md-50 mx-auto mb-8">
-        <h2 class="h1">Features</h2>
-        <p class="h5">Stream creative technology company providing key digital services for everyone.</p>
-      </header>
 
-      <!-- Feature Blocks -->
-      <div class="row">
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <div class="display-4 text-primary mb-2">
-            <i class="fab fa-grav"></i>
-          </div>
-          <h4 class="h5">Excellent Features</h4>
-          <p>Achieve virtually any look and layout design within one UI Kit solution.</p>
-        </div>
 
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <div class="display-4 text-primary mb-2">
-            <i class="fab fa-connectdevelop"></i>
-          </div>
-          <h4 class="h5">Powerful API</h4>
-          <p>We strive to figure out ways to help your audience grow through all platforms.</p>
-        </div>
 
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <div class="display-4 text-primary mb-2">
-            <i class="fas fa-cubes"></i>
-          </div>
-          <h4 class="h5">Blockchain Based</h4>
-          <p>Find what you need in one template and combine features at will.</p>
-        </div>
-      </div>
-      <!-- End Feature Blocks -->
 
-      <hr class="my-8">
 
-      <!-- Feature Blocks -->
-      <div class="row">
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <div class="display-4 text-primary mb-2">
-            <i class="fab fa-vuejs"></i>
-          </div>
-          <h4 class="h5">VueJS Included</h4>
-          <p>Easy and fast adjustments of elements are possible with Stream UI Kit.</p>
-        </div>
 
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <div class="display-4 text-primary mb-2">
-            <i class="fab fa-react"></i>
-          </div>
-          <h4 class="h5">React Powered</h4>
-          <p>Our React Powered App will save you tons of time and cost in your projects.</p>
-        </div>
 
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <div class="display-4 text-primary mb-2">
-            <i class="fab fa-angular"></i>
-          </div>
-          <h4 class="h5">Angular Compatible</h4>
-          <p>Power your app with Angular components for no cost within one stop solution.</p>
-        </div>
-      </div>
-      <!-- End Feature Blocks -->
-    </div>
-  </section>
-  <!-- End Features -->
 
-  <!-- Portfolio -->
+
+
+
+
+
   <section class="u-content-space">
     <div class="container">
       <header class="text-center w-md-50 mx-auto mb-8">

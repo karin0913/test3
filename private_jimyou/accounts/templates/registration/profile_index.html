@@ -1,0 +1,29 @@
+{% extends 'registration/base.html' %}
+{% load static %}
+{% block title %}test{% endblock %}
+{% block header %}{% endblock %}
+{% block contents %}
+<h1>夢：目標　一覧</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>タイトル</th>
+            <th>日付</th>
+            <th>更新処理</th>
+            <th>削除処理</th>
+            {{ title }}
+        </tr>
+    </thead>
+    <tbody>
+    {% for Profiletest in profile_list %}
+        <tr>
+            <td><a href="{% url 'profile_detail' Profiletest.pk %}">{{ Profiletest.title }}</a></td>
+            <td>{{ Profiletest.limit }}</td>
+            <td><a href="{% url 'profile_update' Profiletest.pk %}">更新</a></td>
+            <td><a href="{% url 'profile_delete' Profiletest.pk %}">削除</a></td>
+        </tr>
+    {% endfor %}
+    <a href="{% url 'create_profile' %}">profile作成</a>
+    </tbody>
+</table>
+{% endblock %}

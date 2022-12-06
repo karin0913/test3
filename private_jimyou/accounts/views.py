@@ -10,7 +10,9 @@ from jimyou.forms import UserCreateForm, LoginForm, UserUpdateForm,ProfileCreate
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login, logout
-
+from django.urls import reverse_lazy
+from django.contrib import messages
+# https://qiita.com/sw1394/items/c81aa8685e003ea9f246
 import datetime
 from django.utils import timezone
 from datetime import datetime, timedelta
@@ -119,6 +121,99 @@ class ProfileForm(UpdateView):
         return  render(request, 'registration/profilecreate.html', {'form': form,})
 
 
-# return render(request, 'mutual/index.html',{'propertys': propertys})
-# https://qiita.com/knakajima3027/items/34b2a105da7cdb411736
-# https://teratail.com/questions/270692
+# class PCreateView(LoginRequiredMixin, generic.CreateView):
+#     model = Profiletest
+#     template_name = 'registration/profilecreate.html'
+#     form_class = CreateForm
+#     success_url = reverse_lazy("profile_list")
+
+#     def form_valid(self, form):
+#         Profiletest = form.save(commit=False)
+#         Profiletest.user = self.request.user
+#         Profiletest.save()
+#         messages.success(self.request, '目標を作成しました。')
+#         return super().form_valid(form)
+
+#     def form_invalid(self, form):
+#         messages.error(self.request, "目標の作成に失敗しました。")
+#         return super().form_invalid(form)
+def add(request):
+    """
+    日記の記事を追加
+    """
+    # 送信内容を元にフォームを作る。POSTじゃなければ空のフォームを作成。
+    form = CreateForm(request.POST or None)
+
+    # method==POSTとは送信ボタンが押されたとき。form.is_validは入力内容に問題が無い場合Trueになる。
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return redirect('profile_index')
+
+    # 通常時のアクセスや入力内容に誤りがあれば、再度day_form.htmlを表示
+    context = {
+        'form':form
+    }
+    return render(request, 'registration/profile_form.html', context)
+
+class ProfileListView(LoginRequiredMixin, generic.ListView):
+    model = Profiletest
+    template_name = 'registration/profile_list.html'
+    paginate_by = 2
+
+    def get_queryset(self):
+        diaries = Profiletest.objects.filter(user=self.request.user)
+        return diaries
+def lisy(request):
+    template_name = "registration/profile_list.html" # templates以下のパスを書く
+    title = Profiletest.objects.all().values("title")
+    ctx = {"title": title,}
+    return render(request,template_name,ctx)
+from django.shortcuts import render, redirect, get_object_or_404
+
+def indexprofile(request):
+    """
+    日記の一覧
+    """
+    context = {
+        'profile_list':Profiletest.objects.all(),
+    }
+    return render(request, 'registration/profile_index.html', context)
+
+def detail(request, pk):
+    """
+    日記の詳細
+    """
+    profile = get_object_or_404(Profiletest, pk=pk)
+
+    context = {
+        'profile':profile
+    }
+    return render(request, 'registration/profile_detail.html', context)
+
+def update(request, pk):
+    """
+    日記の記事変更
+    """
+    profile = get_object_or_404(Profiletest, pk=pk)
+    form = CreateForm(request.POST or None, instance=profile)
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return redirect('profile_index')
+    context = {
+        'form':form
+    }
+    return render(request, 'registration/profile_form.html', context)
+
+
+def delete(request, pk):
+    """
+    日記の記事削除
+    """
+    profile = get_object_or_404(Profiletest, pk=pk)
+    if request.method == 'POST':
+        profile.delete()
+        return redirect('profile_index')
+    context = {
+        'profile':profile
+    }
+    return render(request, 'registration/profile_delete.html', context)

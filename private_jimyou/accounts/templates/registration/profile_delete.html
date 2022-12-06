@@ -1,0 +1,25 @@
+{% extends 'registration/base.html' %}
+{% load static %}
+{% block title %}test{% endblock %}
+{% block header %}{% endblock %}
+{% block contents %}
+<form action="" method="POST">
+    <table class="table">
+        <tr>
+            <th>タイトル</th>
+            <td>{{ profile.title }}</td>
+        </tr>
+        <tr>
+            <th>目標達成日</th>
+            <td>{{ profile.limit}}</td>
+        </tr>
+        <tr>
+            <th>文字列</th>
+            <td>{{ profile.text }}</td>
+        </tr>
+    </table>
+    <p>こちらのデータを削除します。</p>
+    <button type="submit" class="btn btn-primary">削除</button>
+    {% csrf_token %}
+</form>
+{% endblock %}
