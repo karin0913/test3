@@ -1,114 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block header %}
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-  <!-- Head -->
-  <head>
-    <title>Contacts | Stream - UI Kit</title>
-
-    <!-- Meta -->
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="keywords" content="Bootstrap Theme, Freebies, UI Kit, MIT license">
-    <meta name="description" content="Stream - UI Kit">
-    <meta name="author" content="htmlstream.com">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{% static '/assets/favicon.ico' %}" type="image/x-icon">
-
-    <!-- Web Fonts -->
-    <link href="//fonts.googleapis.com/css?family=Playfair+Display:400,700%7COpen+Sans:300,400,600,700" rel="stylesheet">
-
-    <!-- Web Fonts -->
-    <link href="//fonts.googleapis.com/css?family=Playfair+Display:400,700%7COpen+Sans:300,400,600,700" rel="stylesheet">
-
-    <!-- Bootstrap Styles -->
-    <link rel="stylesheet" type="text/css" href="{% static '/assets/vendors/bootstrap/css/bootstrap.css' %}">
-
-    <!-- Components Vendor Styles -->
-    <link rel="stylesheet" type="text/css" href="{% static '/assets/vendors/font-awesome/css/fontawesome-all.min.css' %}">
-
-    <!-- Theme Styles -->
-    <link rel="stylesheet" type="text/css" href="{% static '/assets/css/styles.css' %}">
-  </head>
-  <!-- End Head -->
-
-  <body>
-    <!-- Header -->
-    <header>
-      <!-- Navbar -->
-      <nav class="js-navbar-scroll navbar fixed-top navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">
-            <img src="{% static '/assets/img/logo-white.png' %}" alt="Stream UI Kit" style="width: 100px;">
-          </a>
-
-          <button class="navbar-toggler" type="button"
-                  data-toggle="collapse"
-                  data-target="#navbarTogglerDemo"
-
-                  aria-controls="navbarTogglerDemo"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo">
-            <ul class="navbar-nav mt-2 mt-lg-0">
-              <li class="nav-item mr-4 mb-2 mb-lg-0">
-                <a class="nav-link active" href="/">Back to UI Kit</a>
-              </li>
-            </ul>
-
-            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-              <li class="nav-item mr-4 mb-2 mb-lg-0">
-                <a class="nav-link" href="home-page.html">Home</a>
-              </li>
-              <li class="nav-item mr-4 mb-2 mb-lg-0">
-                <a class="nav-link" href="services.html">Services</a>
-              </li>
-              <li class="nav-item dropdown mr-4 mb-2 mb-lg-0">
-                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  About <i class="fas fa-angle-down small ml-1"></i>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="about-us.html">About Us</a>
-                  <a class="dropdown-item" href="about-me.html">About Me</a>
-                </div>
-              </li>
-              <li class="nav-item mr-4 mb-2 mb-lg-0">
-                <a class="nav-link active" href="contacts.html">Contacts</a>
-              </li>
-
-              <!-- 付け足し -->
-              <li class="nav-item mr-4 mb-2 mb-lg-0">
-                <a class="nav-link" href="hm.html">test</a>
-              </li>
-              <!-- ここまで -->
-
-            </ul>
-            <div>
-              <a class="btn btn-primary" data-toggle="modal" href="#callUsModal" href="#!">
-                <i class="fas fa-phone-square mr-1"></i> Call Me
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <!-- End Navbar -->
-
-      <!-- Promo Block -->
-      <section class="js-parallax u-promo-block u-promo-block--mheight-500 u-overlay u-overlay--dark text-white" style="background-image: url(../../static/assets/img-temp/1920x1080/img7.jpg);">
+{% block header %}{% endblock %}
+{% block section %}
+      <section class="js-parallax u-promo-block u-promo-block--mheight-500 u-overlay u-overlay--dark text-white" style="background-image: url(../../static/assets/img-temp/1920x1080/img12.jpg);">
         <!-- Promo Content -->
         <div class="container u-overlay__inner u-ver-center u-content-space">
           <div class="row justify-content-center">
             <div class="col-12">
               <div class="text-center">
-                <h1 class="display-sm-4 display-lg-3">Got a Question?</h1>
-                <p class="h6 text-uppercase u-letter-spacing-sm mb-0">It is good to meet you</p>
+                <h1 class="display-sm-4 display-lg-3">目標登録画面</h1>
+                <p class="h6 text-uppercase u-letter-spacing-sm mb-0">テスト</p>
               </div>
             </div>
           </div>
@@ -124,8 +26,8 @@
       <section class="u-content-space">
         <div class="container">
           <header class="text-center w-md-50 mx-auto mb-8">
-            <h2 class="h1">Tell us about yourself</h2>
-            <p class="h5">Your business needs a little push. We strive to figure out ways to help your audience grow.</p>
+            <h2 class="h1">テスト</h2>
+            <p class="h5">テスト</p>
           </header>
           <form action="" method="POST">
             {% csrf_token %}

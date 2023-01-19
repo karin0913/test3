@@ -6,31 +6,40 @@
 <section></section>
 {% endblock %}
 {% block contents %}
-  <section class="u-content-space">
-    <div class="container">
-      <header class="text-center w-md-50 mx-auto mb-8">
-      </header>
-      <form action="" method="POST">
-        {% csrf_token %}
-        <label>ユーザーID</label>
-        {{ form.username }}
-        {{ form.username.errors }}
-        <label>パスワード</label>
-        {{ form.password }}
-        {{ form.password.errors }}
-        <div class="text-center">
-          <button class="btn btn-lg btn-primary py-3 px-4" type="submit">ログイン</button>
-        </div>
-      </form>
-    </div>
-  </section>
+{% if request.user.is_authenticated %}
+<p>ログインユーザー：{{user.username}}</p><br>
+<p>ログインしました。</p>
+<a href="{% url 'logout' %}">ログアウト</a>
+{% else %}
+<section class="u-content-space">
+  <div class="container">
+    <header class="text-center w-md-50 mx-auto mb-8">
+    </header>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <label>ユーザーID</label>
+      {{ form.username }}
+      {{ form.username.errors }}
+      <label>パスワード</label>
+      {{ form.password }}
+      {{ form.password.errors }}
+      <br>
+      <div class="text-center">
+        <button class="btn btn-lg btn-primary py-3 px-4" type="submit">ログイン</button><br><br>
+        <button class="btn btn-lg btn-primary py-3 px-4" href="{% url 'create_account' %}" type="submit">アカウント作成</button>
+      </div>
+      <br>
+      
+    </form>
+  </div>
+</section>
 </ul>
+{% endif %}
+  
 
   <section class="u-content-space">
     <div class="container">
       <header class="text-center w-md-50 mx-auto mb-8">
-        <h2 class="h1">Branding Works</h2>
-        <p class="h5">We design and develope experiances that make people's lives easy and simple.</p>
       </header>
 
       <ul class="js-shuffle-controls u-portfolio-controls text-center mb-5">
