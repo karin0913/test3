@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from django.shortcuts import render, redirect
-from jimyou.models import Profiletest
+from jimyou.models import Profiletest,Usertest
 
 class BaseView(generic.TemplateView):
     template_name = "base.html"
@@ -22,6 +22,10 @@ class ServicesView(generic.TemplateView):
             'profile_list':Profiletest.objects.all(),
         }
         return render(request, 'services.html', context)
+    def test(request):
+        return Usertest.objects.all()
+    def index(request):
+        user = request.user
 
 
 class AboutusView(generic.TemplateView):
@@ -62,6 +66,38 @@ def home_view(request):
     context = {}
     context['form'] = CreateForm()
     return render(request, 'index.html', context)
+
+def indexprofile(request):
+    """
+    日記の一覧
+    """
+    context = {
+        'profile_list':Profiletest.objects.all(),
+    }
+    return render(request, 'services.html', context)
+
+from django.views import View
+from jimyou.forms import LoginForm
+from django.contrib.auth import login
+class Account_login(View):
+    def post(self, request, *arg, **kwargs):
+        form = LoginForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            user = Usertest.objects.get(username=username)
+            login(request, user)
+            return redirect('/')
+        return render(request, 'index-account.html', {'form': form,})
+
+    def get(self, request, *args, **kwargs):
+        form = LoginForm(request.POST)
+        return render(request, 'index-account.html', {'form': form,})
+
+
+
+
+
+
 # fields = ('user', 'limit', 'title', 'text')
 
 # from .models import Profiletest

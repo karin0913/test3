@@ -3,127 +3,28 @@
 {% block title %}Home Page{% endblock %}
 {% block header %}{% endblock %}
 {% block section %}
-<section class="js-parallax u-promo-block u-promo-block--mheight-500 u-overlay u-overlay--dark text-white" style="background-image: url(../../static/assets/img-temp/1920x1080/img8.jpg);">
-  <div class="container u-overlay__inner u-ver-center u-content-space">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <div class="text-center">
-          <h1 class="display-sm-4 display-lg-3">Our Services</h1>
-          <p class="h6 text-uppercase u-letter-spacing-sm mb-0">Creative Freedom Matters</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>{% endblock %}
+<section></section>
+{% endblock %}
 {% block contents %}
-<main role="main">
-  <!-- Free Quote -->
-  <section class="border-bottom py-3">
-    <div class="container text-center">
-      <p class="mb-0"><span class="badge badge-primary badge-pill mr-2">New</span> We are offering free quotation for any type of projects, <a href="contacts.html">request a free quote!</a></p>
-    </div>
-  </section>
-  <!-- End Free Quote -->
-
-  <!-- Our Product -->
-  <section class="u-content-space-top">
+  <section class="u-content-space">
     <div class="container">
-      <div class="row">
-        <!-- Article Content -->
-        <div class="col-lg-6 align-self-center mb-5 mb-lg-0 pr-lg-5">
-          <header class="mb-5">
-            <h2 class="h1">Our Product</h2>
-            <p class="h5">Convert more visitors, and win more business with Stream - UI Kit.</p>
-          </header>
-
-          <p class="mb-4">Easy and fast adjustments of elements are possible with Front template. Find our more about our all-in-one programmatic template. We help to take of all the paperwork.</p>
-
-          <a class="mr-4" href="#!">
-            <i class="fab fa-google-play mr-1"></i> Google Play
-          </a>
-          <a href="#!">
-            <i class="fab fa-app-store-ios mr-1"></i> App Store
-          </a>
+      <header class="text-center w-md-50 mx-auto mb-8">
+      </header>
+      <form action="" method="POST">
+        {% csrf_token %}
+        <label>ユーザーID</label>
+        {{ form.username }}
+        {{ form.username.errors }}
+        <label>パスワード</label>
+        {{ form.password }}
+        {{ form.password.errors }}
+        <div class="text-center">
+          <button class="btn btn-lg btn-primary py-3 px-4" type="submit">ログイン</button>
         </div>
-        <!-- End Article Content -->
-
-        <!-- Article Image -->
-        <div class="col-lg-6 align-self-center">
-          <!-- SVG Tablet Mockup -->
-          <div class="u-device mx-auto">
-            <figure class="u-device__item">
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                   viewBox="0 0 603 892" style="enable-background:new 0 0 603 892;" xml:space="preserve">
-                <path id="BG_Color" style="fill: #fff;" d="M603,51.8v788.5c0,28.5-23.3,51.8-51.8,51.8H51.8C23.3,892,0,868.7,0,840.2L0,51.8
-                  C0,23.3,23.3,0,51.8,0l499.5,0C579.7,0,603,23.3,603,51.8z"/>
-                <circle id="tabletFrameTouchID1" style="fill: #f7f7f7;" cx="302.5" cy="846.5" r="25.5"/>
-                <circle id="tabletFrameCameraID1" style="fill: #f7f7f7;" cx="301.8" cy="45.9" r="6.2"/>
-                <g>
-                  <defs>
-                    <rect id="tabletFrameID1" x="36" y="86" width="533" height="711"/>
-                  </defs>
-                  <clipPath id="tabletFrameID2">
-                    <use xlink:href="#tabletFrameID1"  style="overflow:visible;"/>
-                  </clipPath>
-                  <g style="clip-path:url(#tabletFrameID2);">
-                    <!-- Apply your (533px width to 711px height) image here -->
-                    <image style="overflow:visible;" width="533" height="711" xlink:href="{% static '/assets/img-temp/533x711/img1.jpg' %}" transform="matrix(1 0 0 1 36 86)"></image>
-                  </g>
-                  <use xlink:href="#tabletFrameID1" stroke-miterlimit="10" style="overflow: visible; stroke: #f2f4fb; fill: none;"/>
-                </g>
-              </svg>
-            </figure>
-          </div>
-          <!-- End SVG Tablet Mockup -->
-        </div>
-        <!-- End Article Image -->
-      </div>
+      </form>
     </div>
   </section>
-  <p></p><p></p><br><br><br><br><br><br><br><br>
-  <h1>夢：目標　一覧</h1>
-  <table class="table">
-    <thead>
-        <tr>
-            <th>タイトル</th>
-            <th>人物</th>
-            <th>日付</th>
-            <th>更新処理</th>
-            <th>削除処理</th>
-        </tr>
-    </thead>
-    
-    <tbody>
-    
-    {% for Profiletest in profile_list %}
-      {% if Profiletest.user == user %}
-        <tr>
-          <td><a href="{% url 'profile_detail' Profiletest.pk %}">{{ Profiletest.title }}</a></td>
-          <td>{{ Profiletest.user }}</td>
-          <td>{{ Profiletest.limit }}</td>
-          <td><a href="{% url 'profile_update' Profiletest.pk %}">更新</a></td>
-          <td><a href="{% url 'profile_delete' Profiletest.pk %}">削除</a></td>
-        </tr>
-      {% endif %}
-    {% endfor %}
-    </tbody>
-  </table>
-
-  <h1>
-    <h2>ログインユーザー：{{user.username}}<br></h2>
-  </h1>
-
-
-
-
-
-
-
-
-
-
-
-
+</ul>
 
   <section class="u-content-space">
     <div class="container">

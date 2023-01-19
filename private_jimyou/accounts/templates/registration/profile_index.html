@@ -16,14 +16,21 @@
     </thead>
     <tbody>
     {% for Profiletest in profile_list %}
-        <tr>
-            <td><a href="{% url 'profile_detail' Profiletest.pk %}">{{ Profiletest.title }}</a></td>
-            <td>{{ Profiletest.limit }}</td>
-            <td><a href="{% url 'profile_update' Profiletest.pk %}">更新</a></td>
-            <td><a href="{% url 'profile_delete' Profiletest.pk %}">削除</a></td>
-        </tr>
+        {% if user.get_username == Profiletest.user %}
+            <tr>
+                <td><a href="{% url 'profile_detail' Profiletest %}">{{ Profiletest.user }}</a></td>
+                <td>{{ Profiletest.limit }}</td>
+                <td><a href="{% url 'profile_update' Profiletest %}">更新</a></td>
+                <td><a href="{% url 'profile_delete' Profiletest %}">削除</a></td>
+            </tr>
+        {% endif %}
     {% endfor %}
     <a href="{% url 'create_profile' %}">profile作成</a>
     </tbody>
 </table>
+{% if user.is_authenticated %}
+<p>{{ user.get_username }}でログイン中</p>
+{% else %}
+<p>ログインしていません</p>
+{% endif %}
 {% endblock %}
