@@ -3,7 +3,6 @@
 
 {% block header %}{% endblock %}
 {% block contents %}
-{% csrf_token %}
     <table class="table">
         <tr>
             <th>タイトル</th>
@@ -18,8 +17,7 @@
             <td>{{ profile_list.text }}</td>
         </tr>
     </table>
-    <a href="{% url 'profile_update' Profilet.pk %}"><button class="btn btn-primary">更新</button></a>
-    <a href="{% url 'profile_delete' Profilet.pk %}"><button class="btn btn-danger">削除</button></a>    
+
 
 {% endblock %}
 

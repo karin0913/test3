@@ -3,6 +3,7 @@ from django.views import generic
 from django.shortcuts import render, redirect
 from jimyou.models import Profiletest,Usertest,Profilet
 from jimyou.forms import CreateForm
+import datetime
 class BaseView(generic.TemplateView):
     template_name = "base.html"
     
@@ -11,6 +12,12 @@ class BaseView(generic.TemplateView):
 
 class IndexView(generic.TemplateView):
     template_name = "index.html"
+    def birthday(request,year, month, day):
+        Birthday = Usertest.objects.get(test='birthday')
+        today = datetime.date.today()
+        birthday = datetime.date(Usertest.objects.get(test='birthday'))
+        context = {'Birthday':Birthday, }
+        return (int(today.strftime("%Y%m%d")) - int(birthday.strftime("%Y%m%d"))) // 10000
 
 class HomeView(generic.TemplateView):
     template_name = "home-page.html"
@@ -81,3 +88,4 @@ class Account_login(View):
     def get(self, request, *args, **kwargs):
         form = LoginForm(request.POST)
         return render(request, 'index-account.html', {'form': form,})
+

@@ -33,8 +33,6 @@ class Usertest(AbstractUser):
 
 
 
-
-
 # https://hodalog.com/how-to-extend-django-user-model/
 # https://www.maytisk.com/django-login/
 # (venv_jimyou_app) C:\Users\karin09\venv_jimyou_app\private_jimyou>python manage.py createsuperuser
