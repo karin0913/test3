@@ -3,22 +3,23 @@
 
 {% block header %}{% endblock %}
 {% block contents %}
+{% csrf_token %}
     <table class="table">
         <tr>
             <th>タイトル</th>
-            <td>{{ profile.title }}</td>
+            <td>{{ profile_list.title }}</td>
         </tr>
         <tr>
             <th>目標達成日</th>
-            <td>{{ profile.limit }}</td>
+            <td>{{ profile_list.limit }}</td>
         </tr>
         <tr>
             <th>文字列</th>
-            <td>{{ profile.text }}</td>
+            <td>{{ profile_list.text }}</td>
         </tr>
     </table>
-    <a href="{% url 'profile_update' profile.pk %}"><button class="btn btn-primary">更新</button></a>
-    <a href="{% url 'profile_delete' profile.pk %}"><button class="btn btn-danger">削除</button></a>    
+    <a href="{% url 'profile_update' Profilet.pk %}"><button class="btn btn-primary">更新</button></a>
+    <a href="{% url 'profile_delete' Profilet.pk %}"><button class="btn btn-danger">削除</button></a>    
 
 {% endblock %}
 

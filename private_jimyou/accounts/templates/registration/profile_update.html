@@ -14,9 +14,9 @@
         <div>{{ form.title }}{{ form.title.errors }}</div>
         <label>夢：目標の説明</label>
         <div>{{ form.text }}{{ form.text.errors }}</div>
+        <label>完了/未完了</label>
+        <div>{{ form.check }}{{ form.check.errors }}</div>
     </table>
     <button type="submit" class="btn btn-primary">送信</button>
 </form>
 {% endblock %}
-
-<!-- https://www.techpit.jp/courses/65/curriculums/68/sections/551/parts/1898 -->

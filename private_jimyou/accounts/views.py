@@ -4,7 +4,7 @@ from django.views import generic
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from .models import Usertest
-from jimyou.models import Profiletest
+from jimyou.models import Profiletest,Profilet
 from django.views.generic import CreateView,TemplateView,UpdateView
 from jimyou.forms import UserCreateForm, LoginForm, UserUpdateForm,ProfileCreateForm,CreateForm
 from django.contrib.auth.views import LoginView, LogoutView
@@ -175,18 +175,18 @@ def indexprofile(request):
     日記の一覧
     """
     context = {
-        'profile_list':Profiletest.objects.all(),
+        'profile_list':Profilet.objects.all(),
     }
     return render(request, 'registration/profile_index.html', context)
 
-def detail(request, pk):
+def detail(request,pk):
     """
     日記の詳細
     """
-    profile = get_object_or_404(Profiletest, pk=pk)
+    profile = get_object_or_404(Profilet,pk=pk)
 
     context = {
-        'profile':profile
+        'profile_list':profile
     }
     return render(request, 'registration/profile_detail.html', context)
 
@@ -194,7 +194,7 @@ def update(request, pk):
     """
     日記の記事変更
     """
-    profile = get_object_or_404(Profiletest, pk=pk)
+    profile = get_object_or_404(Profilet, pk=pk)
     form = CreateForm(request.POST or None, instance=profile)
     if request.method == 'POST' and form.is_valid():
         form.save()
@@ -202,14 +202,14 @@ def update(request, pk):
     context = {
         'form':form
     }
-    return render(request, 'registration/profile_form.html', context)
+    return render(request, 'registration/profile_update.html', context)
 
 
 def delete(request, pk):
     """
     日記の記事削除
     """
-    profile = get_object_or_404(Profiletest, pk=pk)
+    profile = get_object_or_404(Profilet, pk=pk)
     if request.method == 'POST':
         profile.delete()
         return redirect('profile_index')

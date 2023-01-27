@@ -3,11 +3,11 @@ import os
 from django import forms
 from django.core.mail import EmailMessage
 from accounts.models import Usertest
-from .models import Profiletest
+from .models import Profilet
 class CreateForm(forms.ModelForm):
     class Meta:
-        model = Profiletest
-        fields = ('user', 'limit', 'title', 'text')
+        model = Profilet
+        fields = ('user', 'limit', 'title', 'text','check')
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():

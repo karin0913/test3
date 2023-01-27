@@ -18,3 +18,9 @@ class Profiletest(models.Model):
     #     return self.gender
 
 # https://di-acc2.com/programming/python/1694/
+class Profilet(models.Model):
+    user = models.ForeignKey(Usertest,verbose_name='ユーザー',on_delete=models.PROTECT)
+    limit = models.DateField(verbose_name='目標達成日',null=True, blank=True)
+    title = models.CharField(verbose_name='目標の名前',max_length=30, blank=True)
+    text = models.CharField(verbose_name='目標の説明',max_length=150, blank=True)
+    check = models.BooleanField(verbose_name='完了/未完了')
